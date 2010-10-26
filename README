@@ -1,0 +1,63 @@
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+In English
+
+    Cross-browser player for <video> and <audio>
+    Follow us on Twitter: http://twitter.com/open_player
+
+Supported JS frameworks
+
+    • jQuery
+
+    It's planned to port OpenPlayer as plugin for the most popular JS frameworks
+    and also create native JavaScript version.
+
+Supported Browsers
+
+    There are two ways of media playback support: using embedded support based on HTML5 spec or,
+    in lack of options, using Flash player fallback.
+
+Embedded Support
+
+    • Firefox 3.6+
+    • Opera 10.50+
+    • Safari 3+
+    • Chrome 3+
+
+Flash Player
+
+    • Firefox 3
+    • Opera 10
+    • Chrome 2
+    • IE 6+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+По-русски
+
+    Кроссбраузерный плеер для <video> и <audio>
+    Читайте нас в Твиттере: http://twitter.com/open_player
+
+Поддерживаемые JS-библиотеки
+
+    • jQuery
+
+    Планируется портировать OpenPlayer для самых популярных JS-библиотек в виде плагинов,
+    а также написать версию на чистом JavaScript.
+
+Поддерживаемые браузеры
+
+    Поддержка воспроизведения медиа осуществляется двумя способами: на основе спецификации HTML5,
+    при помощи встроенных в браузер средств или, при отсутствии такой возможности, через Flash–плеер.
+
+Встроенная поддержка
+
+    • Firefox 3.6+
+    • Opera 10.50+
+    • Safari 3+
+    • Chrome 3+
+
+Flash-плеер
+
+    • Firefox 3
+    • Opera 10
+    • Chrome 2
+    • IE 6+
