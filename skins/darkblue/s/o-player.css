@@ -1,0 +1,467 @@
+/* Open Player
+---------------------------------------- */
+.o-player {
+	position:relative;
+	overflow:hidden;
+	min-width:400px;
+	}
+
+	/* Body */
+	.o-player-body {
+		overflow:hidden;
+		}
+
+	/* Frame */
+	.o-player-frame {
+		background:#000;
+		}
+
+	/* Media */
+	.o-player-media {
+		display:block;
+		width:100%;
+		}
+	
+	/* Controls */
+	.o-player-controls {
+		position:absolute;
+		bottom:0;
+		left:0;
+		width:100%;
+		height:40px;
+		background:url(../i/controls.png) repeat-x;
+		}
+	
+	/* Button */
+	.o-player-button {
+		position:absolute;
+		background:url(../i/buttons.png) 100px 100px no-repeat;
+		cursor:pointer;
+		}
+	
+	/* Bar */
+	.o-player-bar {
+		position:absolute;
+		height:0;
+		border-style:solid;
+		}
+	
+	/* Seeker */
+	.o-player-seeker {
+		border-width:5px;
+		border-color:#111;
+		-webkit-border-image:url(../i/seeker.png) 5 repeat;
+		-moz-border-image:url(../i/seeker.png) 5 repeat;
+		border-image:url(../i/seeker.png) 5 repeat;
+		}
+
+	/* Loaded */
+	.o-player-loaded {
+		top:-4px;
+		left:-4px;
+		border-width:4px;
+		border-color:#7C7C7C;
+		-webkit-border-image:url(../i/loaded.png) 4 repeat;
+		-moz-border-image:url(../i/loaded.png) 4 repeat;
+		border-image:url(../i/loaded.png) 4 repeat;
+		}
+
+	/* Played */
+	.o-player-played {
+		top:-4px;
+		left:-4px;
+		border-width:4px;
+		border-color:#007CCA;
+		-webkit-border-image:url(../i/played.png) 4 repeat;
+		-moz-border-image:url(../i/played.png) 4 repeat;
+		border-image:url(../i/played.png) 4 repeat;
+		}
+
+	/* Label */
+	.o-player-label {
+		position:absolute;
+		top:-6px;
+		color:#BBB;
+		text-shadow:0 2px 1px #000;
+		font:11px Arial,sans-serif;
+		cursor:default;
+		}
+	.o-player-label-current {
+		right:100%;
+		margin-right:12px;
+		}
+	.o-player-label-remain {
+		left:100%;
+		margin-left:12px;
+		}
+
+	/* Knob */
+	.o-player-knob {
+		top:-9px;
+		right:-10px;
+		width:18px;
+		height:18px;
+		background-position:0 -100px;
+		}
+	.o-player-knob:active {
+		background-position:-19px -100px;
+		}
+
+	/* Volume */
+	.o-player-volume {
+		width:17px;
+		height:16px;
+		}
+	.o-player-volume-100 {
+		background-position:0 -22px;
+		}
+	.o-player-volume-100:active {
+		background-position:-18px -22px;
+		}
+	.o-player-volume-50 {
+		background-position:-36px -22px;
+		}
+	.o-player-volume-50:active {
+		background-position:-54px -22px;
+		}
+	.o-player-volume-0 {
+		background-position:-71px -22px;
+		}
+	.o-player-volume-0:active {
+		background-position:-88px -22px;
+		}
+
+	/* Level */
+	.o-player-level {
+		width:39px;
+		}
+
+/* Video
+---------------------------------------- */
+.o-player-video {
+	min-height:40px;
+	}
+	
+	/* Playback */
+	.o-player-video .o-player-playback {
+		top:9px;
+		left:13px;
+		width:21px;
+		height:21px;
+		background-position:0 0;
+		}
+	.o-player-video .o-player-playback:active {
+		background-position:-22px 0;
+		}
+	
+	/* Seeker */
+	.o-player-video .o-player-seeker {
+		top:15px;
+		}
+	.o-player-video .o-player-seeker-short {
+		right:160px;
+		left:80px;
+		}
+	.o-player-video .o-player-seeker-long {
+		right:175px;
+		left:95px;
+		}
+
+	/* Volume */
+	.o-player-video .o-player-volume {
+		top:12px;
+		right:96px;
+		}
+
+	/* Level */
+	.o-player-video .o-player-level {
+		right:43px;
+		}
+
+	/* Fit */
+	.o-player-video .o-player-fit {
+		display:none;
+		width:21px;
+		height:21px;
+		}
+
+	/* Mode */
+	.o-player-video .o-player-mode {
+		top:11px;
+		right:13px;
+		width:17px;
+		height:17px;
+		background-position:0 -81px;
+		}
+	.o-player-video .o-player-mode:active {
+		background-position:-18px -81px;
+		}
+
+	/* Start */
+	.o-player-video .o-player-start {
+		top:50%;
+		left:50%;
+		margin:-27px 0 0 -22px;
+		width:54px;
+		height:54px;
+		background-position:-105px -64px;
+		}
+
+	/* Spinner */
+	.o-player-video .o-player-spinner {
+		position:absolute;
+		top:50%;
+		left:50%;
+		display:none;
+		margin:-27px 0 0 -27px;
+		width:54px;
+		height:54px;
+		background:url(../i/spinner.png) no-repeat;
+		}
+
+/* Video Playing
+---------------------------------------- */
+.o-player-video-playing {
+	}
+
+	/* Playback */
+	.o-player-video-playing .o-player-playback {
+		background-position:-44px 0;
+		}
+	.o-player-video-playing .o-player-playback:active {
+		background-position:-66px 0;
+		}
+
+	/* Start */
+	.o-player-video-playing .o-player-start {
+		display:none;
+		}
+
+/* Video Loading
+---------------------------------------- */
+.o-player-video-loading {
+	}
+
+	/* Start */
+	.o-player-video-loading .o-player-start {
+		display:none;
+		}
+
+	/* Spinner */
+	.o-player-video-loading .o-player-spinner {
+		display:block;
+		}
+
+/* Video Fullscreen
+---------------------------------------- */
+.o-player-video-fullscreen {
+	position:static;
+	}
+	
+	/* Frame */
+	.o-player-video-fullscreen .o-player-frame {
+		position:fixed;
+		top:0;
+		left:0;
+		z-index:9999;
+		width:100%;
+		height:100%;
+		}
+	
+	/* Media */
+	.o-player-video-fullscreen .o-player-media {
+		position:absolute;
+		top:0;
+		left:0;
+		}
+	
+	/* Controls */
+	.o-player-video-fullscreen .o-player-controls {
+		bottom:10%;
+		left:50%;
+		width:400px;
+		height:60px;
+		margin-left:-200px;
+		background:url(../i/panel.png) no-repeat;
+		}
+	
+	/* Playback */
+	.o-player-video-fullscreen .o-player-playback {
+		top:9px;
+		left:50%;
+		margin-left:-9px;
+		}
+
+	/* Volume */
+	.o-player-video-fullscreen .o-player-volume {
+		right:auto;
+		left:15px;
+		}
+
+	/* Level */
+	.o-player-video-fullscreen .o-player-level {
+		top:15px;
+		right:auto;
+		left:36px;
+		}
+
+	/* Seeker */
+	.o-player-video-fullscreen .o-player-seeker-long,
+	.o-player-video-fullscreen .o-player-seeker-short {
+		top:auto;
+		bottom:11px;
+		}
+	.o-player-video-fullscreen .o-player-seeker-short {
+		right:49px;
+		left:49px;
+		}
+	.o-player-video-fullscreen .o-player-seeker-long {
+		right:64px;
+		left:64px;
+		}
+
+	/* Fit */
+	.o-player-video-fullscreen .o-player-fit {
+		display:block;
+		top:9px;
+		right:40px;
+		}
+
+	/* Mode */
+	.o-player-video-fullscreen .o-player-mode {
+		top:11px;
+		right:15px;
+		background-position:-36px -81px;
+		}
+	.o-player-video-fullscreen .o-player-mode:active {
+		top:11px;
+		right:15px;
+		background-position:-54px -81px;
+		}
+
+/* Video Fullscreen Horizontal
+---------------------------------------- */
+.o-player-video-fullscreen-horizontal {
+	}
+
+	/* Media */
+	.o-player-video-fullscreen-horizontal .o-player-media {
+		width:100%;
+		height:auto;
+		}
+	.o-player-video-fullscreen-horizontal-fit .o-player-media {
+		width:auto;
+		height:100%;
+		}
+
+	/* Fit */
+	.o-player-video-fullscreen-horizontal .o-player-fit {
+		background-position:0 -38px;
+		}
+	.o-player-video-fullscreen-horizontal .o-player-fit:active {
+		background-position:-22px -38px;
+		}
+	.o-player-video-fullscreen-horizontal-fit .o-player-fit {
+		background-position:-44px -38px;
+		}
+	.o-player-video-fullscreen-horizontal-fit .o-player-fit:active {
+		background-position:-66px -38px;
+		}
+
+/* Video Fullscreen Vertical
+---------------------------------------- */
+.o-player-video-fullscreen-vertical {
+	}
+
+	/* Media */
+	.o-player-video-fullscreen-vertical .o-player-media {
+		width:auto;
+		height:100%;
+		}
+	.o-player-video-fullscreen-vertical-fit .o-player-media {
+		width:100%;
+		height:auto;
+		}
+
+	/* Fit */
+	.o-player-video-fullscreen-vertical .o-player-fit {
+		background-position:0 -59px;
+		}
+	.o-player-video-fullscreen-vertical .o-player-fit:active {
+		background-position:-22px -59px;
+		}
+	.o-player-video-fullscreen-vertical-fit .o-player-fit {
+		background-position:-44px -59px;
+		}
+	.o-player-video-fullscreen-vertical-fit .o-player-fit:active {
+		background-position:-66px -59px;
+		}
+
+/* Audio
+---------------------------------------- */
+.o-player-audio {
+	height:28px;
+	}
+	
+	/* Media */
+	.o-player-audio .o-player-media {
+		display:none;
+		}
+
+	/* Controls */
+	.o-player-audio .o-player-controls {
+		height:28px;
+		-webkit-border-radius:8px;
+		-moz-border-radius:8px;
+		border-radius:8px;
+		background-position:0 -6px;
+		}
+
+	/* Playback */
+	.o-player-audio .o-player-playback {
+		top:6px;
+		left:13px;
+		width:17px;
+		height:17px;
+		background-position:-88px 0;
+		}
+	.o-player-audio .o-player-playback:active {
+		background-position:-106px 0;
+		}
+
+	/* Seeker */
+	.o-player-audio .o-player-seeker {
+		top:9px;
+		}
+	.o-player-audio .o-player-seeker-short {
+		right:132px;
+		left:77px;
+		}
+	.o-player-audio .o-player-seeker-long {
+		right:147px;
+		left:92px;
+		}
+
+	/* Volume */
+	.o-player-audio .o-player-volume {
+		top:6px;
+		right:68px;
+		}
+
+	/* Level */
+	.o-player-audio .o-player-level {
+		right:15px;
+		}
+
+/* Audio Playing
+---------------------------------------- */
+.o-player-audio-playing {
+	}
+
+	/* Playback */
+	.o-player-audio-playing .o-player-playback {
+		background-position:-124px 0;
+		}
+	.o-player-audio-playing .o-player-playback:active {
+		background-position:-142px 0;
+		}

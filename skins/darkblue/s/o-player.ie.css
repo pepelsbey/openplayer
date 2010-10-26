@@ -1,0 +1,18 @@
+/* Open Player
+---------------------------------------- */
+
+	/* Label */
+	.o-player-label {
+		top:-7px;
+		}
+	
+	/* Gutter */
+	* HTML .o-player-gutter,
+	* HTML .o-player-bar {
+		font-size:0;
+		}
+
+	/* Loader */
+	* HTML .o-player-loader {
+		overflow:hidden;
+		}

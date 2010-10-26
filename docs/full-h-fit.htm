@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html lang="ru-RU">
+<head>
+	<title>OpenPlayer</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="../skins/darkblue/s/o-player.css">
+	<style type="text/css">
+		BODY {
+			margin:0;
+			padding:40px 50px;
+			background:#444;
+			color:#FFF;
+			font:12px sans-serif;
+			}
+		H1, H2 {
+			margin:0 0 20px;
+			color:#CCC;
+			text-shadow:0 1px 1px #000;
+			}
+		H1 {
+			font:30px Helvetica, sans-serif;
+			}
+		H2 {
+			font:18px Helvetica, sans-serif;
+			}
+			H2 A {
+				text-decoration:none;
+				border-bottom:1px solid;
+				color:#CCC;
+				}
+		PRE {
+			margin:0 0 40px;
+			white-space:normal;
+			font:12px Consolas, 'Andale Mono', monospace;
+			}
+			PRE CODE {
+				display:block;
+				padding:2px 0;
+				white-space:pre-wrap;
+				font-family:inherit;
+				}
+			PRE STRONG {
+				padding:2px 4px;
+				background:#333;
+				font-weight:normal;
+				}
+		.o-player {
+			margin:0 0 20px;
+			}
+	</style>
+</head>
+<body>
+	<h1>Видео</h1>
+	<h2>Полный экран</h2>
+	<div class="o-player o-player-video o-player-video-fullscreen o-player-video-fullscreen-horizontal-fit" style="width:400px">
+		<div class="o-player-frame">
+			<video poster="../media/video.jpg" class="o-player-media">
+				<source src="../media/video.mp4" type="video/mp4">
+				<source src="../media/video.ogv" type="video/ogg;codecs=theora,vorbis">
+			</video>
+			<div class="o-player-button o-player-start"></div>
+			<div class="o-player-spinner"></div>
+			<div class="o-player-controls">
+				<div class="o-player-button o-player-playback"></div>
+				<div class="o-player-bar o-player-seeker o-player-seeker-short">
+					<div class="o-player-label o-player-label-current">00:00</div>
+					<div class="o-player-bar o-player-loaded" style="width:0%"></div>
+					<div class="o-player-bar o-player-played" style="width:0%">
+						<div class="o-player-button o-player-knob"></div>
+					</div>
+					<div class="o-player-label o-player-label-remain">00:00</div>
+				</div>
+				<div class="o-player-button o-player-volume o-player-volume-100"></div>
+				<div class="o-player-bar o-player-seeker o-player-level">
+					<div class="o-player-bar o-player-loaded" style="width:100%">
+						<div class="o-player-button o-player-knob"></div>
+					</div>
+				</div>
+				<div class="o-player-button o-player-fit"></div>
+				<div class="o-player-button o-player-mode"></div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,587 @@
+<!DOCTYPE HTML>
+<html lang="ru-RU">
+<head>
+	<title>OpenPlayer</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="../skins/darkblue/s/o-player.css">
+	<style type="text/css">
+		BODY {
+			margin:0;
+			padding:0 50px 40px;
+			background:#444;
+			color:#FFF;
+			font:12px sans-serif;
+			}
+		H1, H2 {
+			margin:40px 0 20px;
+			color:#CCC;
+			text-shadow:0 1px 1px #000;
+			}
+		H1 {
+			font:30px Helvetica, sans-serif;
+			}
+		H2 {
+			font:18px Helvetica, sans-serif;
+			}
+			H2 A {
+				text-decoration:none;
+				border-bottom:1px solid;
+				color:#CCC;
+				}
+		P {
+			width:40em;
+			line-height:1.5;
+			}
+		PRE {
+			margin:0 0 20px;
+			white-space:normal;
+			font:12px Consolas, 'Andale Mono', monospace;
+			}
+			PRE CODE {
+				display:block;
+				padding:2px 0;
+				white-space:pre-wrap;
+				font-family:inherit;
+				}
+			PRE STRONG {
+				padding:2px 4px;
+				background:#333;
+				font-weight:normal;
+				}
+		.o-player {
+			margin:0 0 20px;
+			}
+	</style>
+</head>
+<body>
+	<h1>Видео</h1>
+	<h2>Тип</h2>
+	<div class="o-player o-player-video" style="width:400px">
+		<div class="o-player-frame">
+			<video poster="../media/video.jpg" class="o-player-media">
+				<source src="../media/video.mp4" type="video/mp4">
+				<source src="../media/video.ogv" type="video/ogg;codecs=theora,vorbis">
+			</video>
+			<div class="o-player-button o-player-start"></div>
+			<div class="o-player-spinner"></div>
+			<div class="o-player-controls">
+				<div class="o-player-button o-player-playback"></div>
+				<div class="o-player-bar o-player-seeker o-player-seeker-short">
+					<div class="o-player-label o-player-label-current">00:00</div>
+					<div class="o-player-bar o-player-loaded" style="width:0%"></div>
+					<div class="o-player-bar o-player-played" style="width:0%">
+						<div class="o-player-button o-player-knob"></div>
+					</div>
+					<div class="o-player-label o-player-label-remain">00:00</div>
+				</div>
+				<div class="o-player-button o-player-volume o-player-volume-100"></div>
+				<div class="o-player-bar o-player-seeker o-player-level">
+					<div class="o-player-bar o-player-loaded" style="width:100%">
+						<div class="o-player-button o-player-knob"></div>
+					</div>
+				</div>
+				<div class="o-player-button o-player-fit"></div>
+				<div class="o-player-button o-player-mode"></div>
+			</div>
+		</div>
+	</div>
+	<pre>
+		<code>&lt;div class="o-player <strong>o-player-video</strong>"&gt;</code>
+		<code>    …</code>
+		<code>&lt;/div&gt;</code>
+	</pre>
+	<h2>Запущено</h2>
+	<div class="o-player o-player-video o-player-video-playing" style="width:400px">
+		<div class="o-player-frame">
+			<video poster="../media/video.jpg" class="o-player-media">
+				<source src="../media/video.mp4" type="video/mp4">
+				<source src="../media/video.ogv" type="video/ogg;codecs=theora,vorbis">
+			</video>
+			<div class="o-player-button o-player-start"></div>
+			<div class="o-player-spinner"></div>
+			<div class="o-player-controls">
+				<div class="o-player-button o-player-playback"></div>
+				<div class="o-player-bar o-player-seeker o-player-seeker-short">
+					<div class="o-player-label o-player-label-current">00:00</div>
+					<div class="o-player-bar o-player-loaded" style="width:0%"></div>
+					<div class="o-player-bar o-player-played" style="width:0%">
+						<div class="o-player-button o-player-knob"></div>
+					</div>
+					<div class="o-player-label o-player-label-remain">00:00</div>
+				</div>
+				<div class="o-player-button o-player-volume o-player-volume-100"></div>
+				<div class="o-player-bar o-player-seeker o-player-level">
+					<div class="o-player-bar o-player-loaded" style="width:100%">
+						<div class="o-player-button o-player-knob"></div>
+					</div>
+				</div>
+				<div class="o-player-button o-player-fit"></div>
+				<div class="o-player-button o-player-mode"></div>
+			</div>
+		</div>
+	</div>
+	<pre>
+		<code>&lt;div class="o-player o-player-video <strong>o-player-video-playing</strong>"&gt;</code>
+		<code>    …</code>
+		<code>&lt;/div&gt;</code>
+	</pre>
+	<h2>Загружается</h2>
+	<div class="o-player o-player-video o-player-video-playing o-player-video-loading" style="width:400px">
+		<div class="o-player-frame">
+			<video poster="../media/video.jpg" class="o-player-media">
+				<source src="../media/video.mp4" type="video/mp4">
+				<source src="../media/video.ogv" type="video/ogg;codecs=theora,vorbis">
+			</video>
+			<div class="o-player-button o-player-start"></div>
+			<div class="o-player-spinner"></div>
+			<div class="o-player-controls">
+				<div class="o-player-button o-player-playback"></div>
+				<div class="o-player-bar o-player-seeker o-player-seeker-short">
+					<div class="o-player-label o-player-label-current">00:00</div>
+					<div class="o-player-bar o-player-loaded" style="width:0%"></div>
+					<div class="o-player-bar o-player-played" style="width:0%">
+						<div class="o-player-button o-player-knob"></div>
+					</div>
+					<div class="o-player-label o-player-label-remain">00:00</div>
+				</div>
+				<div class="o-player-button o-player-volume o-player-volume-100"></div>
+				<div class="o-player-bar o-player-seeker o-player-level">
+					<div class="o-player-bar o-player-loaded" style="width:100%">
+						<div class="o-player-button o-player-knob"></div>
+					</div>
+				</div>
+				<div class="o-player-button o-player-fit"></div>
+				<div class="o-player-button o-player-mode"></div>
+			</div>
+		</div>
+	</div>
+	<pre>
+		<code>&lt;div class="o-player o-player-video o-player-video-playing <strong>o-player-video-loading</strong>"&gt;</code>
+		<code>    …</code>
+		<code>&lt;/div&gt;</code>
+	</pre>
+	<h2>Короткий лейбл, до 99 минут</h2>
+	<div class="o-player o-player-video" style="width:400px">
+		<div class="o-player-frame">
+			<video poster="../media/video.jpg" class="o-player-media">
+				<source src="../media/video.mp4" type="video/mp4">
+				<source src="../media/video.ogv" type="video/ogg;codecs=theora,vorbis">
+			</video>
+			<div class="o-player-button o-player-start"></div>
+			<div class="o-player-spinner"></div>
+			<div class="o-player-controls">
+				<div class="o-player-button o-player-playback"></div>
+				<div class="o-player-bar o-player-seeker o-player-seeker-short">
+					<div class="o-player-label o-player-label-current">00:00</div>
+					<div class="o-player-bar o-player-loaded" style="width:0%"></div>
+					<div class="o-player-bar o-player-played" style="width:0%">
+						<div class="o-player-button o-player-knob"></div>
+					</div>
+					<div class="o-player-label o-player-label-remain">00:00</div>
+				</div>
+				<div class="o-player-button o-player-volume o-player-volume-100"></div>
+				<div class="o-player-bar o-player-seeker o-player-level">
+					<div class="o-player-bar o-player-loaded" style="width:100%">
+						<div class="o-player-button o-player-knob"></div>
+					</div>
+				</div>
+				<div class="o-player-button o-player-fit"></div>
+				<div class="o-player-button o-player-mode"></div>
+			</div>
+		</div>
+	</div>
+	<pre>
+		<code>&lt;div class="o-player o-player-video"&gt;</code>
+		<code>    &lt;div class="o-player-frame"&gt;</code>
+		<code>        &lt;video class="o-player-media"&gt;</code>
+		<code>        &lt;div class="o-player-controls"&gt;</code>
+		<code>            &lt;div class="o-player-bar o-player-seeker <strong>o-player-seeker-short</strong>"&gt;&lt;/div&gt;</code>
+		<code>        &lt;/div&gt;</code>
+		<code>    &lt;/div&gt;</code>
+		<code>&lt;/div&gt;</code>
+	</pre>
+	<h2>Длинный лейбл, до 99 часов</h2>
+	<div class="o-player o-player-video" style="width:400px">
+		<div class="o-player-frame">
+			<video poster="../media/video.jpg" class="o-player-media">
+				<source src="../media/video.mp4" type="video/mp4">
+				<source src="../media/video.ogv" type="video/ogg;codecs=theora,vorbis">
+			</video>
+			<div class="o-player-button o-player-start"></div>
+			<div class="o-player-spinner"></div>
+			<div class="o-player-controls">
+				<div class="o-player-button o-player-playback"></div>
+				<div class="o-player-bar o-player-seeker o-player-seeker-long">
+					<div class="o-player-label o-player-label-current">00:00:00</div>
+					<div class="o-player-bar o-player-loaded" style="width:0%"></div>
+					<div class="o-player-bar o-player-played" style="width:0%">
+						<div class="o-player-button o-player-knob"></div>
+					</div>
+					<div class="o-player-label o-player-label-remain">00:00:00</div>
+				</div>
+				<div class="o-player-button o-player-volume o-player-volume-100"></div>
+				<div class="o-player-bar o-player-seeker o-player-level">
+					<div class="o-player-bar o-player-loaded" style="width:100%">
+						<div class="o-player-button o-player-knob"></div>
+					</div>
+				</div>
+				<div class="o-player-button o-player-fit"></div>
+				<div class="o-player-button o-player-mode"></div>
+			</div>
+		</div>
+	</div>
+	<pre>
+		<code>&lt;div class="o-player o-player-video"&gt;</code>
+		<code>    &lt;div class="o-player-frame"&gt;</code>
+		<code>        &lt;video class="o-player-media"&gt;</code>
+		<code>        &lt;div class="o-player-controls"&gt;</code>
+		<code>            &lt;div class="o-player-bar o-player-seeker <strong>o-player-seeker-long</strong>"&gt;&lt;/div&gt;</code>
+		<code>        &lt;/div&gt;</code>
+		<code>    &lt;/div&gt;</code>
+		<code>&lt;/div&gt;</code>
+	</pre>
+	<h2>Загружено 70%</h2>
+	<div class="o-player o-player-video" style="width:400px">
+		<div class="o-player-frame">
+			<video poster="../media/video.jpg" class="o-player-media">
+				<source src="../media/video.mp4" type="video/mp4">
+				<source src="../media/video.ogv" type="video/ogg;codecs=theora,vorbis">
+			</video>
+			<div class="o-player-button o-player-start"></div>
+			<div class="o-player-spinner"></div>
+			<div class="o-player-controls">
+				<div class="o-player-button o-player-playback"></div>
+				<div class="o-player-bar o-player-seeker o-player-seeker-short">
+					<div class="o-player-label o-player-label-current">00:00</div>
+					<div class="o-player-bar o-player-loaded" style="width:70%"></div>
+					<div class="o-player-bar o-player-played" style="width:0%">
+						<div class="o-player-button o-player-knob"></div>
+					</div>
+					<div class="o-player-label o-player-label-remain">00:00</div>
+				</div>
+				<div class="o-player-button o-player-volume o-player-volume-100"></div>
+				<div class="o-player-bar o-player-seeker o-player-level">
+					<div class="o-player-bar o-player-loaded" style="width:100%">
+						<div class="o-player-button o-player-knob"></div>
+					</div>
+				</div>
+				<div class="o-player-button o-player-fit"></div>
+				<div class="o-player-button o-player-mode"></div>
+			</div>
+		</div>
+	</div>
+	<pre>
+		<code>&lt;div class="o-player o-player-video"&gt;</code>
+		<code>    &lt;div class="o-player-frame"&gt;</code>
+		<code>        &lt;video class="o-player-media"&gt;</code>
+		<code>        &lt;div class="o-player-controls"&gt;</code>
+		<code>            &lt;div class="o-player-bar o-player-seeker o-player-seeker-short"&gt;</code>
+		<code>                &lt;div class="o-player-bar <strong>o-player-loaded</strong>" style="<strong>width:70%</strong>"&gt;&lt;/div&gt;</code>
+		<code>            &lt;/div&gt;</code>
+		<code>        &lt;/div&gt;</code>
+		<code>    &lt;/div&gt;</code>
+		<code>&lt;/div&gt;</code>
+	</pre>
+	<h2>Проиграно 50%</h2>
+	<div class="o-player o-player-video" style="width:400px">
+		<div class="o-player-frame">
+			<video poster="../media/video.jpg" class="o-player-media">
+				<source src="../media/video.mp4" type="video/mp4">
+				<source src="../media/video.ogv" type="video/ogg;codecs=theora,vorbis">
+			</video>
+			<div class="o-player-button o-player-start"></div>
+			<div class="o-player-spinner"></div>
+			<div class="o-player-controls">
+				<div class="o-player-button o-player-playback"></div>
+				<div class="o-player-bar o-player-seeker o-player-seeker-short">
+					<div class="o-player-label o-player-label-current">00:00</div>
+					<div class="o-player-bar o-player-loaded" style="width:70%"></div>
+					<div class="o-player-bar o-player-played" style="width:50%">
+						<div class="o-player-button o-player-knob"></div>
+					</div>
+					<div class="o-player-label o-player-label-remain">00:00</div>
+				</div>
+				<div class="o-player-button o-player-volume o-player-volume-100"></div>
+				<div class="o-player-bar o-player-seeker o-player-level">
+					<div class="o-player-bar o-player-loaded" style="width:100%">
+						<div class="o-player-button o-player-knob"></div>
+					</div>
+				</div>
+				<div class="o-player-button o-player-fit"></div>
+				<div class="o-player-button o-player-mode"></div>
+			</div>
+		</div>
+	</div>
+	<pre>
+		<code>&lt;div class="o-player o-player-video"&gt;</code>
+		<code>    &lt;div class="o-player-frame"&gt;</code>
+		<code>        &lt;video class="o-player-media"&gt;</code>
+		<code>        &lt;div class="o-player-controls"&gt;</code>
+		<code>            &lt;div class="o-player-bar o-player-seeker o-player-seeker-short"&gt;</code>
+		<code>                &lt;div class="o-player-bar o-player-loaded" style="width:70%"&gt;&lt;/div&gt;</code>
+		<code>                &lt;div class="o-player-bar <strong>o-player-played</strong>" style="<strong>width:50%</strong>"&gt;&lt;/div&gt;</code>
+		<code>            &lt;/div&gt;</code>
+		<code>        &lt;/div&gt;</code>
+		<code>    &lt;/div&gt;</code>
+		<code>&lt;/div&gt;</code>
+	</pre>
+	<h2>Уровень звука на 50%</h2>
+	<div class="o-player o-player-video" style="width:400px">
+		<div class="o-player-frame">
+			<video poster="../media/video.jpg" class="o-player-media">
+				<source src="../media/video.mp4" type="video/mp4">
+				<source src="../media/video.ogv" type="video/ogg;codecs=theora,vorbis">
+			</video>
+			<div class="o-player-button o-player-start"></div>
+			<div class="o-player-spinner"></div>
+			<div class="o-player-controls">
+				<div class="o-player-button o-player-playback"></div>
+				<div class="o-player-bar o-player-seeker o-player-seeker-short">
+					<div class="o-player-label o-player-label-current">00:00</div>
+					<div class="o-player-bar o-player-loaded" style="width:0%"></div>
+					<div class="o-player-bar o-player-played" style="width:0%">
+						<div class="o-player-button o-player-knob"></div>
+					</div>
+					<div class="o-player-label o-player-label-remain">00:00</div>
+				</div>
+				<div class="o-player-button o-player-volume o-player-volume-50"></div>
+				<div class="o-player-bar o-player-seeker o-player-level">
+					<div class="o-player-bar o-player-loaded" style="width:50%">
+						<div class="o-player-button o-player-knob"></div>
+					</div>
+				</div>
+				<div class="o-player-button o-player-fit"></div>
+				<div class="o-player-button o-player-mode"></div>
+			</div>
+		</div>
+	</div>
+	<pre>
+		<code>&lt;div class="o-player o-player-video"&gt;</code>
+		<code>    &lt;div class="o-player-frame"&gt;</code>
+		<code>        &lt;video class="o-player-media"&gt;</code>
+		<code>        &lt;div class="o-player-controls"&gt;</code>
+		<code>            &lt;div class="o-player-bar o-player-seeker o-player-level"&gt;</code>
+		<code>                &lt;div class="o-player-bar o-player-loaded" style="<strong>width:50%</strong>"&gt;&lt;/div&gt;</code>
+		<code>            &lt;/div&gt;</code>
+		<code>        &lt;/div&gt;</code>
+		<code>    &lt;/div&gt;</code>
+		<code>&lt;/div&gt;</code>
+	</pre>
+	<p>Уровень звука позволяет плавно регулировать громость. Три диапазона уровня звука влияют на отображение кнопки звука:</p>
+	<h2>Кнопка звука на 0%</h2>
+	<div class="o-player o-player-video" style="width:400px">
+		<div class="o-player-frame">
+			<video poster="../media/video.jpg" class="o-player-media">
+				<source src="../media/video.mp4" type="video/mp4">
+				<source src="../media/video.ogv" type="video/ogg;codecs=theora,vorbis">
+			</video>
+			<div class="o-player-button o-player-start"></div>
+			<div class="o-player-spinner"></div>
+			<div class="o-player-controls">
+				<div class="o-player-button o-player-playback"></div>
+				<div class="o-player-bar o-player-seeker o-player-seeker-short">
+					<div class="o-player-label o-player-label-current">00:00</div>
+					<div class="o-player-bar o-player-loaded" style="width:0%"></div>
+					<div class="o-player-bar o-player-played" style="width:0%">
+						<div class="o-player-button o-player-knob"></div>
+					</div>
+					<div class="o-player-label o-player-label-remain">00:00</div>
+				</div>
+				<div class="o-player-button o-player-volume o-player-volume-0"></div>
+				<div class="o-player-bar o-player-seeker o-player-level">
+					<div class="o-player-bar o-player-loaded" style="width:0%">
+						<div class="o-player-button o-player-knob"></div>
+					</div>
+				</div>
+				<div class="o-player-button o-player-fit"></div>
+				<div class="o-player-button o-player-mode"></div>
+			</div>
+		</div>
+	</div>
+	<pre>
+		<code>&lt;div class="o-player o-player-video"&gt;</code>
+		<code>    &lt;div class="o-player-frame"&gt;</code>
+		<code>        &lt;video class="o-player-media"&gt;</code>
+		<code>        &lt;div class="o-player-controls"&gt;</code>
+		<code>            &lt;div class="o-player-button o-player-volume <strong>o-player-volume-0</strong>"&gt;&lt;/div&gt;</code>
+		<code>            &lt;div class="o-player-bar o-player-seeker o-player-level"&gt;</code>
+		<code>                &lt;div class="o-player-bar o-player-loaded" style="<strong>width:0%</strong>"&gt;&lt;/div&gt;</code>
+		<code>            &lt;/div&gt;</code>
+		<code>        &lt;/div&gt;</code>
+		<code>    &lt;/div&gt;</code>
+		<code>&lt;/div&gt;</code>
+	</pre>
+	<h2>Кнопка звука на 0–50%</h2>
+	<div class="o-player o-player-video" style="width:400px">
+		<div class="o-player-frame">
+			<video poster="../media/video.jpg" class="o-player-media">
+				<source src="../media/video.mp4" type="video/mp4">
+				<source src="../media/video.ogv" type="video/ogg;codecs=theora,vorbis">
+			</video>
+			<div class="o-player-button o-player-start"></div>
+			<div class="o-player-spinner"></div>
+			<div class="o-player-controls">
+				<div class="o-player-button o-player-playback"></div>
+				<div class="o-player-bar o-player-seeker o-player-seeker-short">
+					<div class="o-player-label o-player-label-current">00:00</div>
+					<div class="o-player-bar o-player-loaded" style="width:0%"></div>
+					<div class="o-player-bar o-player-played" style="width:0%">
+						<div class="o-player-button o-player-knob"></div>
+					</div>
+					<div class="o-player-label o-player-label-remain">00:00</div>
+				</div>
+				<div class="o-player-button o-player-volume o-player-volume-50"></div>
+				<div class="o-player-bar o-player-seeker o-player-level">
+					<div class="o-player-bar o-player-loaded" style="width:50%">
+						<div class="o-player-button o-player-knob"></div>
+					</div>
+				</div>
+				<div class="o-player-button o-player-fit"></div>
+				<div class="o-player-button o-player-mode"></div>
+			</div>
+		</div>
+	</div>
+	<pre>
+		<code>&lt;div class="o-player o-player-video"&gt;</code>
+		<code>    &lt;div class="o-player-frame"&gt;</code>
+		<code>        &lt;video class="o-player-media"&gt;</code>
+		<code>        &lt;div class="o-player-controls"&gt;</code>
+		<code>            &lt;div class="o-player-button o-player-volume <strong>o-player-volume-50</strong>"&gt;&lt;/div&gt;</code>
+		<code>            &lt;div class="o-player-bar o-player-seeker o-player-level"&gt;</code>
+		<code>                &lt;div class="o-player-bar o-player-loaded" style="<strong>width:50%</strong>"&gt;&lt;/div&gt;</code>
+		<code>            &lt;/div&gt;</code>
+		<code>        &lt;/div&gt;</code>
+		<code>    &lt;/div&gt;</code>
+		<code>&lt;/div&gt;</code>
+	</pre>
+	<h2>Кнопка звука на 50–100%</h2>
+	<div class="o-player o-player-video" style="width:400px">
+		<div class="o-player-frame">
+			<video poster="../media/video.jpg" class="o-player-media">
+				<source src="../media/video.mp4" type="video/mp4">
+				<source src="../media/video.ogv" type="video/ogg;codecs=theora,vorbis">
+			</video>
+			<div class="o-player-button o-player-start"></div>
+			<div class="o-player-spinner"></div>
+			<div class="o-player-controls">
+				<div class="o-player-button o-player-playback"></div>
+				<div class="o-player-bar o-player-seeker o-player-seeker-short">
+					<div class="o-player-label o-player-label-current">00:00</div>
+					<div class="o-player-bar o-player-loaded" style="width:0%"></div>
+					<div class="o-player-bar o-player-played" style="width:0%">
+						<div class="o-player-button o-player-knob"></div>
+					</div>
+					<div class="o-player-label o-player-label-remain">00:00</div>
+				</div>
+				<div class="o-player-button o-player-volume o-player-volume-100"></div>
+				<div class="o-player-bar o-player-seeker o-player-level">
+					<div class="o-player-bar o-player-loaded" style="width:100%">
+						<div class="o-player-button o-player-knob"></div>
+					</div>
+				</div>
+				<div class="o-player-button o-player-fit"></div>
+				<div class="o-player-button o-player-mode"></div>
+			</div>
+		</div>
+	</div>
+	<pre>
+		<code>&lt;div class="o-player o-player-video"&gt;</code>
+		<code>    &lt;div class="o-player-frame"&gt;</code>
+		<code>        &lt;video class="o-player-media"&gt;</code>
+		<code>        &lt;div class="o-player-controls"&gt;</code>
+		<code>            &lt;div class="o-player-button o-player-volume <strong>o-player-volume-100</strong>"&gt;&lt;/div&gt;</code>
+		<code>            &lt;div class="o-player-bar o-player-seeker o-player-level"&gt;</code>
+		<code>                &lt;div class="o-player-bar o-player-loaded" style="<strong>width:100%</strong>"&gt;&lt;/div&gt;</code>
+		<code>            &lt;/div&gt;</code>
+		<code>        &lt;/div&gt;</code>
+		<code>    &lt;/div&gt;</code>
+		<code>&lt;/div&gt;</code>
+	</pre>
+	<h2><a href="full.htm" target="_blank">Полный экран</a></h2>
+	<pre>
+		<code>&lt;body class="<strong>o-player-body</strong>"&gt;</code>
+		<code>    &lt;div class="o-player o-player-video <strong>o-player-video-fullscreen</strong>"&gt;</code>
+		<code>        &lt;video class="o-player-media"&gt;</code>
+		<code>    &lt;/div&gt;</code>
+		<code>&lt;/body&gt;</code>
+	</pre>
+	<p>Основа для полноэкранного режима. После его включения производятся рассчёты размеров окна и видео для установки дополнительных классов.</p>
+	<h2><a href="full-h.htm" target="_blank">Полный экран горизонтально</a></h2>
+	<pre>
+		<code>&lt;div class="o-player o-player-video o-player-video-fullscreen <strong>o-player-video-fullscreen-horizontal</strong>"&gt;</code>
+		<code>    &lt;video class="o-player-media" style="<strong>top:Npx</strong>"&gt;</code>
+		<code>&lt;/div&gt;</code>
+	</pre>
+	<p>Режим включается, если ширина видео равна ширине окна и высота видео меньше или равна высоте окна. Иначе говоря, видео либо точно вписывается, либо оставляет горизонтальные чёрные полосы сверху и снизу. Видео автоматически вписывается по ширине и центрируется по вертикали при помощи сдвига сверху.</p>
+	<h2><a href="full-h-fit.htm" target="_blank">Полный экран горизонтально, подгонка</a></h2>
+	<pre>
+		<code>&lt;div class="o-player o-player-video o-player-video-fullscreen <strong>o-player-video-fullscreen-horizontal-fit</strong>"&gt;</code>
+		<code>    &lt;video class="o-player-media" style="<strong>left:-Npx</strong>"&gt;</code>
+		<code>&lt;/div&gt;</code>
+	</pre>
+	<p>Режим предназначен для вписывания видео на основе его высоты для избавления от горизонтальных полос сверху и снизу. Видео автоматически вписывается по высоте и центрируется по горизонтали при помощи отрицацтельного сдвига влево. В зависимости от пропорций окна, теряются боковые части видео.</p>
+	<h2><a href="full-v.htm" target="_blank">Полный экран вертикально</a></h2>
+	<pre>
+		<code>&lt;div class="o-player o-player-video o-player-video-fullscreen <strong>o-player-video-fullscreen-vertical</strong>"&gt;</code>
+		<code>    &lt;video class="o-player-media" style="<strong>left:Npx</strong>"&gt;</code>
+		<code>&lt;/div&gt;</code>
+	</pre>
+	<p>Режим включается, если высота видео равна высоте окна и ширина видео меньше ширины окна. Иначе говоря, видео всегда оставляет по бокам чёрные вертикальные полосы. Видео автоматически вписывается по высоте и центрируется по горизонтали при помощи сдвига слева.</p>
+	<h2><a href="full-v-fit.htm" target="_blank">Полный экран вертикально, подгонка</a></h2>
+	<pre>
+		<code>&lt;div class="o-player o-player-video o-player-video-fullscreen <strong>o-player-video-fullscreen-vertical-fit</strong>"&gt;</code>
+		<code>    &lt;video class="o-player-media" style="<strong>top:-Npx</strong>"&gt;</code>
+		<code>&lt;/div&gt;</code>
+	</pre>
+	<p>Режим предназначен для вписывания видео на основе его ширины для избавления от вертикальных полос по бокам. Видео автоматически вписывается по ширине и центрируется по вертикали при помощи отрицательного сдвига наверх. В зависимости от пропорций окна, теряются верхняя и нижняя части видео.</p>
+	<h1>Аудио</h1>
+	<h2>Тип</h2>
+	<div class="o-player o-player-audio" style="width:400px">
+		<div class="o-player-frame">
+			<audio class="o-player-media">
+				<source src="../media/audio.mp3" type="audio/mp3">
+				<source src="../media/audio.ogg" type="audio/ogg;codecs=vorbis">
+			</audio>
+			<div class="o-player-button o-player-start"></div>
+			<div class="o-player-spinner"></div>
+			<div class="o-player-controls">
+				<div class="o-player-button o-player-playback"></div>
+				<div class="o-player-bar o-player-seeker o-player-seeker-short">
+					<div class="o-player-label o-player-label-current">00:00</div>
+					<div class="o-player-bar o-player-loaded" style="width:0%"></div>
+					<div class="o-player-bar o-player-played" style="width:0%">
+						<div class="o-player-button o-player-knob"></div>
+					</div>
+					<div class="o-player-label o-player-label-remain">00:00</div>
+				</div>
+				<div class="o-player-button o-player-volume o-player-volume-100"></div>
+				<div class="o-player-bar o-player-seeker o-player-level">
+					<div class="o-player-bar o-player-loaded" style="width:100%">
+						<div class="o-player-button o-player-knob"></div>
+					</div>
+				</div>
+				<div class="o-player-button o-player-fit"></div>
+				<div class="o-player-button o-player-mode"></div>
+			</div>
+		</div>
+	</div>
+	<pre>
+		<code>&lt;div class="o-player <strong>o-player-audio</strong>"&gt;</code>
+		<code>    …</code>
+		<code>&lt;/div&gt;</code>
+	</pre>
+	<p>Поведение всех элементов для аудио-плеера аналогично тем, что были описаны для видео-плеера. Отсутствуют только контролы и состояния для полноэкранного режима. Присутствуют состояния «запущено» и «загружается»:</p>
+	<h2>Запущено</h2>
+	<pre>
+		<code>&lt;div class="o-player o-player-audio <strong>o-player-audio-playing</strong>"&gt;</code>
+		<code>    …</code>
+		<code>&lt;/div&gt;</code>
+	</pre>
+	<h2>Загружается</h2>
+	<pre>
+		<code>&lt;div class="o-player o-player-audio <strong>o-player-audio-loading</strong>"&gt;</code>
+		<code>    …</code>
+		<code>&lt;/div&gt;</code>
+	</pre>
+</body>
+</html>
