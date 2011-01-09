@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html lang="ru-RU">
+<head>
+    <meta charset="UTF-8">
+    <title>openPlayer jQuery</title>
+    <link rel="stylesheet" href="skins/darkblue/s/o-player.css" type="text/css" media="screen" title="no title" charset="utf-8">
+    
+</head>
+<body>
+    <a href="#" onclick="getById('_video').load();return false;">reset</a>
+    <video id="_video" poster="media/video.jpg" controls preload="metadata">
+        <source src="media/video.mp4">
+        <source src="media/video.ogv">
+        <source src="media/video.webm">
+    </video>
+    <br>
+    <audio controls preload="metadata">
+        <source src="media/audio.mp3">
+        <source src="media/audio.ogg">
+    </audio>
+    <script src="plugins/jquery/jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script src="plugins/jquery/framework.js" type="text/javascript" charset="utf-8"></script>
+    <script src="plugins/openplayer.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+        $(document).ready(function(e) {
+            var player=[];
+            var video = getByTag('video');
+        	var audio = getByTag('audio');
+        	
+        	for (var i=0; i < video.length; i++) {
+        	   player.push(new openplayer(video[i]));
+        	};
+        	for (var i=0; i < audio.length; i++) {
+        	   player.push(new openplayer(audio[i]));
+        	}; 
+        });
+    </script>
+</body>
+</html>
