@@ -11,6 +11,7 @@ var openplayer = function (media, options) {
 	this.events();
 	this.actions();
 	this.buttons();
+	return this;
 };
 
 // UI 
@@ -55,6 +56,7 @@ openplayer.prototype.ui = function(media) {
 // ACTIONS
 openplayer.prototype.actions = function() {
 	var frame_node = this.media.parentNode;
+	var current_media = false;
 	var _this = this;
 
 	this.actions.play = function(e) {
@@ -65,7 +67,57 @@ openplayer.prototype.actions = function() {
 			media.play();
 		}
 	};
-	
+	this.actions.seek = function(media, pct) {
+		var time = fromPct(pct,media.duration);
+		media.currentTime = time;
+	}
+	this.actions.volume = function(media, pct) {
+		var volume = fromPct(pct,1);
+		//console.log(volume);
+		media.volume = volume;
+	}
+	this.actions.slider = function(e) {
+		// var seeker = e.target.parentNode.parentNode;
+		// 		var leftOrRigth = 0;
+		// 		addEvent(seeker,'mousemove',function(e) {
+		// 			
+		// 		});
+		// addEvent(seeker,'mouseleave',function(e) {
+		// 	console.log(e.type);
+		// 	removeEvent(seeker,'mousemove',arguments.callee);
+		// 	removeEvent(seeker,'mouseleave',arguments.callee);
+		// });
+		// addEvent(seeker,'mouseup',function(e) {
+		// 	console.log(e.type);
+		// 	removeEvent(seeker,'mousemove',arguments.callee);
+		// 	removeEvent(seeker,'mouseleave',arguments.callee);
+		// });
+	};
+	this.actions.position = function(e) {
+		if(hasClass(e.target, 'o-player-seeker') || hasClass(e.target,'o-player-played')) {
+			var w = 0;
+			if(hasClass(e.target,'o-player-played')) {
+				w = getOffset(e.target.parentNode).width;
+			}else{
+				w = getOffset(e.target).width
+			}
+			var p = Math.round(100*e.layerX/w);
+			_this.actions.seek(_this.media, p);
+		}
+	};
+	this.actions.sound = function(e) {
+
+		if(hasClass(e.target, 'o-player-seeker') || hasClass(e.target,'o-player-loaded')) {
+			var w = 0;
+			if(hasClass(e.target,'o-player-loaded')) {
+				w = getOffset(e.target.parentNode).width;
+			}else{
+				w = getOffset(e.target).width
+			}
+			var p = Math.round(100*e.layerX/w);
+			_this.actions.volume(_this.media,p);
+		}
+	};
 	this.actions.mute = function(e) {
 		var media = _this.media;
 		media.muted = !media.muted;
@@ -173,6 +225,9 @@ openplayer.prototype.buttons = function() {
 	addEvent(getByClass('o-player-start',frame_node)[0],'click', this.actions.play);
 	addEvent(getByClass('o-player-volume',frame_node)[0],'click', this.actions.mute);
 	addEvent(getByClass('o-player-mode',frame_node)[0],'click', this.actions.fullscreen);
+	addEvent(getByClass('o-player-seeker',frame_node)[0],'click', this.actions.position);
+	addEvent(getByClass('o-player-knob',frame_node)[0],'mousedown', this.actions.slider);
+	addEvent(getByClass('o-player-level',frame_node)[0],'click', this.actions.sound);
 	//addEvent(window,'resize', this.actions.resize);
 };
 
@@ -211,13 +266,13 @@ openplayer.prototype.events = function() {
 		
 		setHtml(getByClass('o-player-label-current',frame_node)[0], secondsToTime(current_time).join(':'));
 		// ?
-		// setHtml(getByClass('o-player-label-remain',frame_node)[0], secondsToTime((e.target.duration-current_time)).join(':'));
+		setHtml(getByClass('o-player-label-remain',frame_node)[0], secondsToTime((e.target.duration)).join(':'));
 	};
 	this.events.onLoadeddata = function(e) {
-		console.log(e.type);
+		setHtml(getByClass('o-player-label-remain',frame_node)[0], secondsToTime((e.target.duration)).join(':'));
 	};
 	this.events.onLoadedmetadata = function(e) {
-		console.log(e.type);
+		
 	};
 	this.events.onDurationchange = function(e) {
 		console.log(e.type);
@@ -267,6 +322,8 @@ openplayer.prototype.events = function() {
 		var frame_node = e.target.parentNode;
 		toggle(getByClass('o-player-start',frame_node)[0]);
 		removeClass(frame_node.parentNode,'o-player-'+e.target.nodeName.toLowerCase()+'-playing');
+		_this.actions.seek(e.target, 0);
+		e.target.pause();
 	};
 	this.events.onRatechange = function(e) {
 		console.log(e.type);
@@ -277,7 +334,6 @@ openplayer.prototype.events = function() {
 		var o_player_loaded = getByClass('o-player-loaded',getByClass('o-player-level', frame_node)[0])[0];
 
 		var volume = e.target.volume;
-		
 		if(e.target.muted) {
 			removeClass(o_player_volume,'o-player-volume-50');
 			removeClass(o_player_volume,'o-player-volume-100');
@@ -291,13 +347,14 @@ openplayer.prototype.events = function() {
 			}else if ( volume <= '0.5') {
 				removeClass(o_player_volume,'o-player-volume-0');
 				removeClass(o_player_volume,'o-player-volume-100');
-				addClass(o_player_volume, 'o-player-volume-0');
-			} else if (volume > '0.5'){
+				addClass(o_player_volume, 'o-player-volume-50');
+			} else if (volume >= '0.5'){
 				removeClass(o_player_volume, 'o-player-volume-50');
 				removeClass(o_player_volume, 'o-player-volume-0');
 				addClass(o_player_volume, 'o-player-volume-100');
-				setStyle(o_player_loaded,'width','100%');
 			}
+			
+			setStyle(o_player_loaded,'width',toPct(1,volume)+'%');
 		}
 	};
 	

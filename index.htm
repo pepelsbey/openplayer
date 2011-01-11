@@ -8,20 +8,18 @@
 </head>
 <body>
     
-    <video id="_video" poster="media/video.jpg" controls preload="metadata">
-        <source src="media/video.mp4">
-        <source src="media/video.ogv">
-        <source src="media/video.webm">
-    </video>
+    <div style="margin-left:100px">
+        <video id="_video" poster="media/video.jpg" controls preload="metadata">
+            <source src="media/video.mp4">
+            <source src="media/video.ogv">
+            <source src="media/video.webm">
+        </video>
+    </div>
     <br>
     <audio controls preload="metadata">
         <source src="media/audio.mp3">
         <source src="media/audio.ogg">
     </audio>
-    <div id="sm2-container">
-        
-    </div>
-    <script src="plugins/vendor/SoundManager2/script/soundmanager2.js" type="text/javascript" charset="utf-8"></script>
     <script src="plugins/native/framework.js" type="text/javascript" charset="utf-8"></script>
     <script src="plugins/openplayer.js" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript">
@@ -36,25 +34,6 @@
         	for (var i=0; i < audio.length; i++) {
         	   player.push(new openplayer(audio[i]));
         	};
-        	
-        	// soundManager.debugMode = false; // disable debug output
-            soundManager.useFlashBlock = true;
-            soundManager.url = 'plugins/vendor/SoundManager2/swf/'; // path to directory containing SoundManager2 .SWF file
-            soundManager.flashVersion = 9; // flash 9.0r115+ required for MovieStar mode
-            soundManager.useMovieStar = true; // enable AAC/MPEG4 video in SM2
-            soundManager.allowFullScreen = true; // enable full-screen mode
-
-            if (window.location.toString().match('nodebug')) {
-              soundManager.debugMode = false;
-            }
-
-            soundManager.onready(function() {
-              if (soundManager.supported()) {
-                // soundManager.createSound() etc. may now be called
-                soundManager.createVideo({id:'photos3Demo',url:'media/video.mp4'});
-                soundManager.play('photos3Demo');
-              }
-            });
         };
     </script>
 </body>
