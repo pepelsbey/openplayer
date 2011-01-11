@@ -4,8 +4,9 @@ var openplayer = function (media, options) {
 	}
 	this.options = {
 		width : 400
-	}
+	}	
 	this.media = media;
+	this.support = this.tests();
 	this.ui();
 	this.events();
 	this.actions();
@@ -110,6 +111,58 @@ openplayer.prototype.actions = function() {
 	};
 	
 };
+// TESTS
+openplayer.prototype.tests = function() {
+	// These tests evaluate support of the video/audio elements, as well as
+    // testing what types of content they support.
+    //
+    // We're using the Boolean constructor here, so that we can extend the value
+    // e.g.  Modernizr.video     // true
+    //       Modernizr.video.ogg // 'probably'
+    //
+    // Codec values from : http://github.com/NielsLeenheer/html5test/blob/9106a8/index.html#L845
+    //                     thx to NielsLeenheer and zcorpan
+    
+    // Note: in FF 3.5.1 and 3.5.0, "no" was a return value instead of empty string.
+    // Modernizr does not normalize for that.
+	var doc = document;
+	this.tests.audio = function() {
+		var elem = doc.createElement('audio'),
+            bool = !!elem.canPlayType;
+        
+        if (bool){  
+            bool      = new Boolean(bool);  
+            bool.ogg  = elem.canPlayType('audio/ogg; codecs="vorbis"');
+            bool.mp3  = elem.canPlayType('audio/mpeg;');
+            
+            // Mimetypes accepted: 
+            //   https://developer.mozilla.org/En/Media_formats_supported_by_the_audio_and_video_elements
+            //   http://bit.ly/iphoneoscodecs
+            bool.wav  = elem.canPlayType('audio/wav; codecs="1"');
+            bool.m4a  = elem.canPlayType('audio/x-m4a;') || elem.canPlayType('audio/aac;');
+        }
+        return bool;
+	};
+	this.tests.video = function() {
+		var elem = doc.createElement('video'),
+            bool = !!elem.canPlayType;
+        
+        if (bool){  
+            bool      = new Boolean(bool);  
+            bool.ogg  = elem.canPlayType('video/ogg; codecs="theora"');
+            
+            // Workaround required for IE9, which doesn't report video support without audio codec specified.
+            //   bug 599718 @ msft connect
+            var h264 = 'video/mp4; codecs="avc1.42E01E';
+            bool.h264 = elem.canPlayType(h264 + '"') || elem.canPlayType(h264 + ', mp4a.40.2"');
+            
+            bool.webm = elem.canPlayType('video/webm; codecs="vp8, vorbis"');
+        }
+        return bool;
+	};
+	return {video:this.tests.video(), audio:this.tests.audio()};
+};
+
 
 // BUTTONS
 openplayer.prototype.buttons = function() {
@@ -154,9 +207,11 @@ openplayer.prototype.events = function() {
 		// Показываем сколько проиграно
 		var frame_node = e.target.parentNode;
 		getByClass('o-player-played', frame_node)[0].style.width=toPct(e.target.duration,e.target.currentTime)+'%';
-		setHtml(getByClass('o-player-label-current',frame_node)[0], secondsToTime(e.target.currentTime).join(':'));
+		var current_time = e.target.currentTime;
 		
-		setHtml(getByClass('o-player-label-remain',frame_node)[0], secondsToTime((e.target.duration-e.target.currentTime)).join(':'));
+		setHtml(getByClass('o-player-label-current',frame_node)[0], secondsToTime(current_time).join(':'));
+		// ?
+		// setHtml(getByClass('o-player-label-remain',frame_node)[0], secondsToTime((e.target.duration-current_time)).join(':'));
 	};
 	this.events.onLoadeddata = function(e) {
 		console.log(e.type);
