@@ -10,8 +10,8 @@ function getById (node) {
 function addEvent(node, event, fn) {
 	node.addEventListener(event, fn, false);
 };
-function removeEvent(node, event) {
-	node.removeEventListener(event);
+function removeEvent(node, event, fn) {
+	node.removeEventListener(event, fn);
 };
 function addClass(o, c){
     var re = new RegExp("(^|\\s)" + c + "(\\s|$)", "g");

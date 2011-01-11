@@ -77,21 +77,36 @@ openplayer.prototype.actions = function() {
 		media.volume = volume;
 	}
 	this.actions.slider = function(e) {
-		// var seeker = e.target.parentNode.parentNode;
-		// 		var leftOrRigth = 0;
-		// 		addEvent(seeker,'mousemove',function(e) {
-		// 			
-		// 		});
-		// addEvent(seeker,'mouseleave',function(e) {
-		// 	console.log(e.type);
-		// 	removeEvent(seeker,'mousemove',arguments.callee);
-		// 	removeEvent(seeker,'mouseleave',arguments.callee);
-		// });
-		// addEvent(seeker,'mouseup',function(e) {
-		// 	console.log(e.type);
-		// 	removeEvent(seeker,'mousemove',arguments.callee);
-		// 	removeEvent(seeker,'mouseleave',arguments.callee);
-		// });
+		var seeker = e.target.parentNode.parentNode;
+		var played = e.target.parentNode;
+		var freeze = 0;
+		var knob_width = getOffset(e.target).width;
+		var seeker_width = getOffset(seeker).width;
+		var dragmenot = function(e) {
+			var played_width = getOffset(played).width;
+			if((hasClass(e.target, 'o-player-seeker') || hasClass(e.target, 'o-player-played') || hasClass(e.target, 'o-player-knob'))) {
+				if(hasClass(e.target, 'o-player-knob')) {
+					var w = (e.layerX+played_width)-knob_width;
+				}else{
+					var w = e.layerX;
+				}
+				if(seeker_width >= w) {
+					setStyle(played,'width',w+'px');
+				}
+			}
+		};
+		var cleanevents = function(e) {
+			var pct = Math.round(100*getOffset(played).width/seeker_width);
+			if(hasClass(seeker,'o-player-level')) { // Volume
+				_this.actions.volume(_this.media, pct);
+			}else{
+				_this.actions.seek(_this.media, pct);
+			}
+			removeEvent(document,'mousemove', dragmenot);
+			removeEvent(document,'mouseup', cleanevents);
+		};
+		addEvent(document,'mousemove', dragmenot);
+		addEvent(document,'mouseup', cleanevents);
 	};
 	this.actions.position = function(e) {
 		if(hasClass(e.target, 'o-player-seeker') || hasClass(e.target,'o-player-played')) {
@@ -227,6 +242,7 @@ openplayer.prototype.buttons = function() {
 	addEvent(getByClass('o-player-mode',frame_node)[0],'click', this.actions.fullscreen);
 	addEvent(getByClass('o-player-seeker',frame_node)[0],'click', this.actions.position);
 	addEvent(getByClass('o-player-knob',frame_node)[0],'mousedown', this.actions.slider);
+	addEvent(getByClass('o-player-level',frame_node)[0],'mousedown', this.actions.slider);
 	addEvent(getByClass('o-player-level',frame_node)[0],'click', this.actions.sound);
 	//addEvent(window,'resize', this.actions.resize);
 };
