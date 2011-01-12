@@ -67,13 +67,15 @@ openplayer.prototype.actions = function() {
 			media.play();
 		}
 	};
+	this.actions.hotkey = function(e) {
+		console.log(e.target);
+	};
 	this.actions.seek = function(media, pct) {
 		var time = fromPct(pct,media.duration);
 		media.currentTime = time;
 	}
 	this.actions.volume = function(media, pct) {
 		var volume = fromPct(pct,1);
-		//console.log(volume);
 		media.volume = volume;
 	}
 	this.actions.slider = function(e) {
@@ -82,6 +84,8 @@ openplayer.prototype.actions = function() {
 		var freeze = 0;
 		var knob_width = getOffset(e.target).width;
 		var seeker_width = getOffset(seeker).width;
+		var paused = _this.media.paused;
+		
 		var dragmenot = function(e) {
 			var played_width = getOffset(played).width;
 			if((hasClass(e.target, 'o-player-seeker') || hasClass(e.target, 'o-player-played') || hasClass(e.target, 'o-player-knob'))) {
@@ -91,12 +95,15 @@ openplayer.prototype.actions = function() {
 					var w = e.layerX;
 				}
 				if(seeker_width >= w) {
+					if(!paused) {
+						_this.media.pause();
+					}
 					setStyle(played,'width',w+'px');
 				}
 			}
 		};
 		var cleanevents = function(e) {
-			var pct = Math.round(100*getOffset(played).width/seeker_width);
+			var pct = Math.round(100*getOffset(played).width/(seeker_width));
 			if(hasClass(seeker,'o-player-level')) { // Volume
 				_this.actions.volume(_this.media, pct);
 			}else{
@@ -104,18 +111,22 @@ openplayer.prototype.actions = function() {
 			}
 			removeEvent(document,'mousemove', dragmenot);
 			removeEvent(document,'mouseup', cleanevents);
+			if(!paused) {
+				_this.media.play();
+			}
 		};
 		addEvent(document,'mousemove', dragmenot);
 		addEvent(document,'mouseup', cleanevents);
 	};
 	this.actions.position = function(e) {
-		if(hasClass(e.target, 'o-player-seeker') || hasClass(e.target,'o-player-played')) {
+		if(hasClass(e.target, 'o-player-seeker') || hasClass(e.target,'o-player-played') || hasClass(e.target,'o-player-loaded')) {
 			var w = 0;
 			if(hasClass(e.target,'o-player-played')) {
 				w = getOffset(e.target.parentNode).width;
 			}else{
 				w = getOffset(e.target).width
 			}
+			console.log(w);
 			var p = Math.round(100*e.layerX/w);
 			_this.actions.seek(_this.media, p);
 		}
@@ -244,6 +255,8 @@ openplayer.prototype.buttons = function() {
 	addEvent(getByClass('o-player-knob',frame_node)[0],'mousedown', this.actions.slider);
 	addEvent(getByClass('o-player-level',frame_node)[0],'mousedown', this.actions.slider);
 	addEvent(getByClass('o-player-level',frame_node)[0],'click', this.actions.sound);
+	//addEvent(frame_node,'keyup', this.actions.hotkey);
+	//console.log(frame_node.parentNode);
 	//addEvent(window,'resize', this.actions.resize);
 };
 
@@ -314,9 +327,6 @@ openplayer.prototype.events = function() {
 		console.log(e.type);
 	};
 	this.events.onStalled = function(e) {
-		console.log(e.type);
-	};
-	this.events.onWaiting = function(e) {
 		console.log(e.type);
 	};
 	this.events.onWaiting = function(e) {

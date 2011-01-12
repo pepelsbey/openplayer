@@ -11,7 +11,7 @@ function addEvent(node, event, fn) {
 	node.addEventListener(event, fn, false);
 };
 function removeEvent(node, event, fn) {
-	node.removeEventListener(event, fn);
+	node.removeEventListener(event, fn, false);
 };
 function addClass(o, c){
     var re = new RegExp("(^|\\s)" + c + "(\\s|$)", "g");
