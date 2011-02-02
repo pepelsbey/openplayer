@@ -294,9 +294,8 @@ openplayer.prototype.buttons = function() {
 // EVENTS
 openplayer.prototype.events = function() {
 	_this = this;
+	var frame_node = this.media.parentNode;
 	function updateTotalTime (e) {
-
-		var frame_node = e.target.parentNode;
 		getByClass('o-player-played', frame_node)[0].style.width=toPct(e.target.duration,e.target.currentTime)+'%';
 		setHtml(getByClass('o-player-label-remain',frame_node)[0], secondsToTime(e.target.duration).join(':'));
 	}
