@@ -3,7 +3,8 @@ var openplayer = function (media, options) {
 		return;
 	}
 	this.options = {
-		width : 400
+		width : 400,
+		time_to_hide: 1000
 	}	
 	this.media = media;
 	this.support = this.tests();
@@ -148,14 +149,44 @@ openplayer.prototype.actions = function() {
 		var media = _this.media;
 		media.muted = !media.muted;
 	};
+	this.actions.hidepanel = function(frame_node) {
+		var time_to_hide_timer = 0;
+		var bindMoveMouse = function(e) {
+			console.log(e.type);
+			var player_controls = getByClass('o-player-controls', frame_node)[0];
+			setStyle(player_controls,'display','block');
+			if(time_to_hide_timer) {
+				clearTimeout(time_to_hide_timer);
+			}
+			if(!hasClass(e.target,'o-player-controls')) {
+				time_to_hide_timer = setTimeout(function() {
+					setStyle(player_controls,'display','none');
+				},_this.options.time_to_hide);
+			}
+		};
+		// Скрытие панели управления
+		var start = function() {
+			addEvent(frame_node,'mousemove',bindMoveMouse);
+		};
+		var stop = function() {
+			if(time_to_hide_timer) {
+				clearTimeout(time_to_hide_timer);
+			}
+			console.log(time_to_hide_timer);
+			removeEvent(frame_node,'mousemove',bindMoveMouse);
+		};
+		return {'start':start,'stop':stop};
+	};
 	function fittoscreen (resize) {
 		var media = _this.media;
 		var window_size = getSize(window);
-
+		var time_to_hide_timer = 0;
 		if(hasClass(document.body,'o-player-body') && !resize) {
 			removeClass(document.body,'o-player-body');
 			removeClass(frame_node.parentNode,'o-player-video-fullscreen');
+			_this.actions.hidepanel(frame_node).stop();
 		}else{
+			_this.actions.hidepanel(frame_node).start();
 			addClass(document.body,'o-player-body');
 			addClass(frame_node.parentNode,'o-player-video-fullscreen');
 			var media_size = getSize(media);
