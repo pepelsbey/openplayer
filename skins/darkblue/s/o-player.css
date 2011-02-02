@@ -52,6 +52,7 @@
 		border-color:#111;
 		-webkit-border-image:url(../i/seeker.png) 5 repeat;
 		-moz-border-image:url(../i/seeker.png) 5 repeat;
+		-o-border-image:url(../i/seeker.png) 5 repeat;
 		border-image:url(../i/seeker.png) 5 repeat;
 		}
 
@@ -63,6 +64,7 @@
 		border-color:#7C7C7C;
 		-webkit-border-image:url(../i/loaded.png) 4 repeat;
 		-moz-border-image:url(../i/loaded.png) 4 repeat;
+		-o-border-image:url(../i/loaded.png) 4 repeat;
 		border-image:url(../i/loaded.png) 4 repeat;
 		}
 
@@ -74,6 +76,7 @@
 		border-color:#007CCA;
 		-webkit-border-image:url(../i/played.png) 4 repeat;
 		-moz-border-image:url(../i/played.png) 4 repeat;
+		-o-border-image:url(../i/played.png) 4 repeat;
 		border-image:url(../i/played.png) 4 repeat;
 		}
 
